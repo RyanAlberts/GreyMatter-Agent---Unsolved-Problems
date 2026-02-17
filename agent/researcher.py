@@ -18,8 +18,10 @@ class Researcher:
         
         report = {
             "topic": topic_data['topic'],
+            "problem_statement": topic_data.get('problem_statement', topic_data.get('context')),
             "source": topic_data['source'],
-            "description": topic_data['context'],
+            "importance_justification": topic_data.get('importance_justification', "N/A"),
+            "importance_score": topic_data.get('importance_score', 50),
             "verification": {
                 "is_novel": True,
                 "tam_estimate": f"${random.randint(10, 500)}B", # Mock TAM

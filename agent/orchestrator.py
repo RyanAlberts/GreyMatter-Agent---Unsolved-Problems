@@ -22,33 +22,43 @@ class Orchestrator:
         # Simulated findings based on the user's context
         mock_findings = [
             {
-                "topic": "Reasoning in LLMs (System 2)",
+                "topic": "Reasoning",
+                "problem_statement": "LLMs struggle with long-horizon planning and System 2 reasoning, relying on pattern matching instead of causal logic.",
                 "source": "Yann LeCun / Francois Chollet",
-                "context": "Current LLMs are just pattern matchers. We need System 2 reasoning.",
+                "importance_justification": "Solving this is the prerequisite for AGI that can act autonomously in the real world without constant human oversight.",
+                "importance_score": 95,
                 "rank": "High"
             },
             {
-                "topic": "AI Alignment & Safety",
+                "topic": "Alignment",
+                "problem_statement": "We lack a mathematical guarantee that superintelligent systems will remain aligned with human values during recursive self-improvement.",
                 "source": "Geoffrey Hinton / Eliezer Yudkowsky",
-                "context": "Ensuring superintelligence aligns with human values is unsolved.",
+                "importance_justification": "Existential risk parameter. If not solved, higher capability leads to higher probability of catastrophic failure.",
+                "importance_score": 98,
                 "rank": "High"
             },
             {
-                "topic": "Embodied AI / Robotics",
+                "topic": "Data Scarcity",
+                "problem_statement": "Robotics foundation models are data-starved compared to text models; we lack the 'Internet scale' data for physical interaction.",
                 "source": "Chelsea Finn / Dr. Merritt Moore",
-                "context": "Deploying AI in the physical world remains a massive data challenge.",
+                "importance_justification": "The bottleneck preventing AI from entering the physical economy (manufacturing, elder care, logistics).",
+                "importance_score": 88,
                 "rank": "Medium"
             },
             {
-                "topic": "Energy Efficiency of Large Models",
+                "topic": "Energy Efficiency",
+                "problem_statement": "Current transformer architectures require unsustainable energy levels to scale 100x from here.",
                 "source": "Sam Altman / Jensen Huang",
-                "context": "Scaling laws are hitting energy walls. We need efficient inference.",
+                "importance_justification": "Physical constraints (power plants, heat dissipation) are now the hard limit on scaling laws.",
+                "importance_score": 92,
                 "rank": "High"
             },
              {
-                "topic": "Causal Inference",
+                "topic": "Causality",
+                "problem_statement": "Models cannot distinguish between correlation and causation, leading to hallucinations in scientific discovery.",
                 "source": "Yoshua Bengio",
-                "context": "Models need to understand cause and effect, not just correlation.",
+                "importance_justification": "Critical for AI to be used in high-stakes fields like drug discovery and policy making.",
+                "importance_score": 85,
                 "rank": "Medium"
             }
         ]

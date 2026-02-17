@@ -1,77 +1,92 @@
 [
   {
-    "topic": "Reasoning in LLMs (System 2)",
-    "source": "Yann LeCun / Francois Chollet",
-    "description": "Current LLMs are just pattern matchers. We need System 2 reasoning.",
+    "topic": "Alignment",
+    "problem_statement": "We lack a mathematical guarantee that superintelligent systems will remain aligned with human values during recursive self-improvement.",
+    "source": "Geoffrey Hinton / Eliezer Yudkowsky",
+    "importance_justification": "Existential risk parameter. If not solved, higher capability leads to higher probability of catastrophic failure.",
+    "importance_score": 98,
     "verification": {
       "is_novel": true,
-      "tam_estimate": "$148B",
+      "tam_estimate": "$53B",
       "leading_labs": [
         "OpenAI",
         "DeepMind",
         "Meta"
       ],
-      "complexity_score": 9
-    }
+      "complexity_score": 10
+    },
+    "date": "2026-02-17"
   },
   {
-    "topic": "AI Alignment & Safety",
-    "source": "Geoffrey Hinton / Eliezer Yudkowsky",
-    "description": "Ensuring superintelligence aligns with human values is unsolved.",
+    "topic": "Reasoning",
+    "problem_statement": "LLMs struggle with long-horizon planning and System 2 reasoning, relying on pattern matching instead of causal logic.",
+    "source": "Yann LeCun / Francois Chollet",
+    "importance_justification": "Solving this is the prerequisite for AGI that can act autonomously in the real world without constant human oversight.",
+    "importance_score": 95,
     "verification": {
       "is_novel": true,
-      "tam_estimate": "$292B",
+      "tam_estimate": "$285B",
+      "leading_labs": [
+        "OpenAI",
+        "DeepMind",
+        "Meta"
+      ],
+      "complexity_score": 10
+    },
+    "date": "2026-02-17"
+  },
+  {
+    "topic": "Energy Efficiency",
+    "problem_statement": "Current transformer architectures require unsustainable energy levels to scale 100x from here.",
+    "source": "Sam Altman / Jensen Huang",
+    "importance_justification": "Physical constraints (power plants, heat dissipation) are now the hard limit on scaling laws.",
+    "importance_score": 92,
+    "verification": {
+      "is_novel": true,
+      "tam_estimate": "$201B",
       "leading_labs": [
         "OpenAI",
         "DeepMind",
         "Meta"
       ],
       "complexity_score": 7
-    }
+    },
+    "date": "2026-02-17"
   },
   {
-    "topic": "Embodied AI / Robotics",
+    "topic": "Data Scarcity",
+    "problem_statement": "Robotics foundation models are data-starved compared to text models; we lack the 'Internet scale' data for physical interaction.",
     "source": "Chelsea Finn / Dr. Merritt Moore",
-    "description": "Deploying AI in the physical world remains a massive data challenge.",
+    "importance_justification": "The bottleneck preventing AI from entering the physical economy (manufacturing, elder care, logistics).",
+    "importance_score": 88,
     "verification": {
       "is_novel": true,
-      "tam_estimate": "$45B",
+      "tam_estimate": "$99B",
       "leading_labs": [
         "OpenAI",
         "DeepMind",
         "Meta"
       ],
       "complexity_score": 10
-    }
+    },
+    "date": "2026-02-17"
   },
   {
-    "topic": "Energy Efficiency of Large Models",
-    "source": "Sam Altman / Jensen Huang",
-    "description": "Scaling laws are hitting energy walls. We need efficient inference.",
-    "verification": {
-      "is_novel": true,
-      "tam_estimate": "$327B",
-      "leading_labs": [
-        "OpenAI",
-        "DeepMind",
-        "Meta"
-      ],
-      "complexity_score": 10
-    }
-  },
-  {
-    "topic": "Causal Inference",
+    "topic": "Causality",
+    "problem_statement": "Models cannot distinguish between correlation and causation, leading to hallucinations in scientific discovery.",
     "source": "Yoshua Bengio",
-    "description": "Models need to understand cause and effect, not just correlation.",
+    "importance_justification": "Critical for AI to be used in high-stakes fields like drug discovery and policy making.",
+    "importance_score": 85,
     "verification": {
       "is_novel": true,
-      "tam_estimate": "$58B",
+      "tam_estimate": "$379B",
       "leading_labs": [
         "OpenAI",
         "DeepMind",
         "Meta"
       ],
       "complexity_score": 9
-    }
+    },
+    "date": "2026-02-17"
   }
 ]
