@@ -3,6 +3,7 @@ import json
 import time
 import google.generativeai as genai
 from config import THOUGHT_LEADERS, GOOGLE_API_KEY
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
 class Orchestrator:
     def __init__(self):
@@ -11,12 +12,13 @@ class Orchestrator:
             genai.configure(api_key=GOOGLE_API_KEY)
             self.model = genai.GenerativeModel('gemini-2.0-flash-lite-001') # Using lite model for better quota
         else:
-            print("Warning: GOOGLE_API_KEY not found. Agent will use mock data.")
+            print("Warning: GOOGLE_API_KEY not found. Agent will fail without credentials.")
             self.model = None
 
+    @retry(wait=wait_exponential(multiplier=1, min=4, max=60), stop=stop_after_attempt(5))
     def find_potential_topics(self):
         if not self.model:
-            return self._get_mock_data()
+            raise ValueError("Google API Key not configured")
 
         print(f"🕵️‍♂️ Orchestrator: Scouting for unsolved problems using Gemini Grounding...")
         
@@ -63,55 +65,10 @@ class Orchestrator:
             
         except Exception as e:
             print(f"Error executing Gemini Orchestrator: {e}")
-            print("Falling back to mock data...")
-            return self._get_mock_data()
+            raise e
 
     def plan_research(self):
         return self.find_potential_topics()
-
-    def _get_mock_data(self):
-        return [
-            {
-                "topic": "Reasoning",
-                "problem_statement": "LLMs struggle with long-horizon planning and System 2 reasoning, relying on pattern matching instead of causal logic.",
-                "source": "Yann LeCun / Francois Chollet",
-                "importance_justification": "Solving this is the prerequisite for AGI that can act autonomously in the real world without constant human oversight.",
-                "importance_score": 95,
-                "rank": "High"
-            },
-            {
-                "topic": "Alignment",
-                "problem_statement": "We lack a mathematical guarantee that superintelligent systems will remain aligned with human values during recursive self-improvement.",
-                "source": "Geoffrey Hinton / Eliezer Yudkowsky",
-                "importance_justification": "Existential risk parameter. If not solved, higher capability leads to higher probability of catastrophic failure.",
-                "importance_score": 98,
-                "rank": "High"
-            },
-            {
-                "topic": "Data Scarcity",
-                "problem_statement": "Robotics foundation models are data-starved compared to text models; we lack the 'Internet scale' data for physical interaction.",
-                "source": "Chelsea Finn / Dr. Merritt Moore",
-                "importance_justification": "The bottleneck preventing AI from entering the physical economy (manufacturing, elder care, logistics).",
-                "importance_score": 88,
-                "rank": "Medium"
-            },
-            {
-                "topic": "Energy Efficiency",
-                "problem_statement": "Current transformer architectures require unsustainable energy levels to scale 100x from here.",
-                "source": "Sam Altman / Jensen Huang",
-                "importance_justification": "Physical constraints (power plants, heat dissipation) are now the hard limit on scaling laws.",
-                "importance_score": 92,
-                "rank": "High"
-            },
-             {
-                "topic": "Causality",
-                "problem_statement": "Models cannot distinguish between correlation and causation, leading to hallucinations in scientific discovery.",
-                "source": "Yoshua Bengio",
-                "importance_justification": "Critical for AI to be used in high-stakes fields like drug discovery and policy making.",
-                "importance_score": 85,
-                "rank": "Medium"
-            }
-        ]
 
 if __name__ == "__main__":
     orchestrator = Orchestrator()

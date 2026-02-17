@@ -2,7 +2,7 @@
 
 **GreyMatter** constitutes an autonomous research system designed to identify, verify, and prioritize "Big Unsolved Problems" in technology and science.
 
-![Dashboard Preview](/Users/MacBookPro15/.gemini/antigravity/brain/5c393763-6e84-420e-8a5b-faeaa1dbdb67/greymatter_dashboard_top_1771366010531.png)
+![Dashboard Preview](docs/assets/dashboard_preview.png)
 
 ## 🚀 Overview
 
@@ -43,5 +43,14 @@ The system tracks problems with the following schema:
 *   **Problem Statement**: Explicit definition of the gap.
 *   **Importance Justification**: Why this matters (e.g., "Prerequisite for AGI").
 *   **Score**: Calculated priority (0-100).
-*   **Provenance**: Who identified it (Source).
-*   **TAM**: Market estimate.
+4.  **Provenance**: Who identified it (Source).
+5.  **TAM**: Market estimate.
+
+## 🕰️ Production Schedule (Daily)
+
+The agent is designed to run autonomously. It includes built-in retry logic for rate limits and will wait exponentially if the API quota is exceeded.
+
+To schedule it to run daily at 4:00 AM PST:
+1.  Edit `com.greymatter.agent.plist` (generated in the root).
+2.  Copy to LaunchAgents: `cp com.greymatter.agent.plist ~/Library/LaunchAgents/`
+3.  Load it: `launchctl load ~/Library/LaunchAgents/com.greymatter.agent.plist`

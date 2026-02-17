@@ -2,6 +2,8 @@ import google.generativeai as genai
 from config import GOOGLE_API_KEY
 import json
 import random
+import time
+from tenacity import retry, stop_after_attempt, wait_exponential
 
 class Researcher:
     def __init__(self):
@@ -11,11 +13,12 @@ class Researcher:
         else:
             self.model = None
 
+    @retry(wait=wait_exponential(multiplier=1, min=4, max=60), stop=stop_after_attempt(5))
     def verify_topic(self, topic_data):
         print(f"🔬 Researcher: Verifying '{topic_data['topic']}'...")
         
         if not self.model:
-            return self._verify_mock(topic_data)
+            raise ValueError("Google API Key not configured")
 
         # Real verification using Gemini
         prompt = f"""
@@ -57,24 +60,7 @@ class Researcher:
             
         except Exception as e:
             print(f"Error in verification: {e}")
-            return self._verify_mock(topic_data)
-
-    def _verify_mock(self, topic_data):
-        # Mock verification result
-        report = {
-            "topic": topic_data['topic'],
-            "problem_statement": topic_data.get('problem_statement', topic_data.get('context')),
-            "source": topic_data['source'],
-            "importance_justification": topic_data.get('importance_justification', "N/A"),
-            "importance_score": topic_data.get('importance_score', 50),
-            "verification": {
-                "is_novel": True,
-                "tam_estimate": f"${random.randint(10, 500)}B", # Mock TAM
-                "leading_labs": ["OpenAI", "DeepMind", "Meta"],
-                "complexity_score": random.randint(7, 10)
-            }
-        }
-        return report
+            raise e
 
 import time
 
