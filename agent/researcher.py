@@ -1,5 +1,5 @@
 import google.generativeai as genai
-from .config import GOOGLE_API_KEY
+from config import GOOGLE_API_KEY
 import json
 import random
 
@@ -7,7 +7,7 @@ class Researcher:
     def __init__(self):
         if GOOGLE_API_KEY:
             genai.configure(api_key=GOOGLE_API_KEY)
-            self.model = genai.GenerativeModel('gemini-2.0-flash-exp')
+            self.model = genai.GenerativeModel('gemini-2.0-flash-lite-001')
         else:
             self.model = None
 
@@ -76,6 +76,8 @@ class Researcher:
         }
         return report
 
+import time
+
 def run_research_campaign(candidates):
     researcher = Researcher()
     verified_reports = []
@@ -83,5 +85,6 @@ def run_research_campaign(candidates):
     for candidate in candidates:
         report = researcher.verify_topic(candidate)
         verified_reports.append(report)
+        time.sleep(2) # Rate limit protection
         
     return verified_reports

@@ -9,7 +9,7 @@ class Orchestrator:
         self.leaders = THOUGHT_LEADERS
         if GOOGLE_API_KEY:
             genai.configure(api_key=GOOGLE_API_KEY)
-            self.model = genai.GenerativeModel('gemini-2.0-flash-exp') # Using the latest fast model
+            self.model = genai.GenerativeModel('gemini-2.0-flash-lite-001') # Using lite model for better quota
         else:
             print("Warning: GOOGLE_API_KEY not found. Agent will use mock data.")
             self.model = None
@@ -33,7 +33,7 @@ class Orchestrator:
         prompt = f"""
         You are an elite AI Research Scout. Your goal is to identify "Big Unsolved Problems" in AI and Tech.
         
-        Focus on these Thought Leaders: {", ".join(self.leaders[:10])} and others.
+        Focus on these Thought Leaders: {", ".join([l['name'] for l in self.leaders[:10]])} and others.
         
         Look for:
         1. Bottlenecks explicitly mentioned (e.g., "We are stuck on X").

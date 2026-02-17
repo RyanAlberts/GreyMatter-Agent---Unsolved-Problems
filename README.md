@@ -2,7 +2,7 @@
 
 **GreyMatter** constitutes an autonomous research system designed to identify, verify, and prioritize "Big Unsolved Problems" in technology and science.
 
-![Dashboard Preview](/Users/MacBookPro15/.gemini/antigravity/brain/5c393763-6e84-420e-8a5b-faeaa1dbdb67/dashboard_hero_cards_1771364403787.png)
+![Dashboard Preview](/Users/MacBookPro15/.gemini/antigravity/brain/5c393763-6e84-420e-8a5b-faeaa1dbdb67/greymatter_dashboard_top_1771366010531.png)
 
 ## 🚀 Overview
 
