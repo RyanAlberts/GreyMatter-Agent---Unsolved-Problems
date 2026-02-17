@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+agent/.env
+agent/venv/
+
+# Node
+node_modules/
+.next/
+web-app/node_modules/
+web-app/.next/
+
+# Misc
+.DS_Store

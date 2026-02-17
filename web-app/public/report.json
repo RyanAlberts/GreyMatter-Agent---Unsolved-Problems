@@ -1,0 +1,77 @@
+[
+  {
+    "topic": "Reasoning in LLMs (System 2)",
+    "source": "Yann LeCun / Francois Chollet",
+    "description": "Current LLMs are just pattern matchers. We need System 2 reasoning.",
+    "verification": {
+      "is_novel": true,
+      "tam_estimate": "$148B",
+      "leading_labs": [
+        "OpenAI",
+        "DeepMind",
+        "Meta"
+      ],
+      "complexity_score": 9
+    }
+  },
+  {
+    "topic": "AI Alignment & Safety",
+    "source": "Geoffrey Hinton / Eliezer Yudkowsky",
+    "description": "Ensuring superintelligence aligns with human values is unsolved.",
+    "verification": {
+      "is_novel": true,
+      "tam_estimate": "$292B",
+      "leading_labs": [
+        "OpenAI",
+        "DeepMind",
+        "Meta"
+      ],
+      "complexity_score": 7
+    }
+  },
+  {
+    "topic": "Embodied AI / Robotics",
+    "source": "Chelsea Finn / Dr. Merritt Moore",
+    "description": "Deploying AI in the physical world remains a massive data challenge.",
+    "verification": {
+      "is_novel": true,
+      "tam_estimate": "$45B",
+      "leading_labs": [
+        "OpenAI",
+        "DeepMind",
+        "Meta"
+      ],
+      "complexity_score": 10
+    }
+  },
+  {
+    "topic": "Energy Efficiency of Large Models",
+    "source": "Sam Altman / Jensen Huang",
+    "description": "Scaling laws are hitting energy walls. We need efficient inference.",
+    "verification": {
+      "is_novel": true,
+      "tam_estimate": "$327B",
+      "leading_labs": [
+        "OpenAI",
+        "DeepMind",
+        "Meta"
+      ],
+      "complexity_score": 10
+    }
+  },
+  {
+    "topic": "Causal Inference",
+    "source": "Yoshua Bengio",
+    "description": "Models need to understand cause and effect, not just correlation.",
+    "verification": {
+      "is_novel": true,
+      "tam_estimate": "$58B",
+      "leading_labs": [
+        "OpenAI",
+        "DeepMind",
+        "Meta"
+      ],
+      "complexity_score": 9
+    }
+  }
+]
